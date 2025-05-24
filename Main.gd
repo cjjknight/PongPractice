@@ -11,7 +11,7 @@ var score_right := 0
 func _ready():
     ball.connect("scored", _on_ball_scored)
     right_paddle.is_ai = true
-    right_paddle.ball = ball
+    right_paddle.ai_target_ball = ball
     _update_score()
 
 func _on_ball_scored(side:String) -> void:
