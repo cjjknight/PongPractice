@@ -2,14 +2,15 @@ extends Node2D
 
 const SPEED := 300
 @export var is_ai := false
-var ball: Node2D
+# Reference to the ball used only when this paddle is controlled by AI
+var ai_target_ball: Node2D
 
 func _process(delta):
     var move := 0.0
-    if is_ai and ball:
-        if ball.position.y < position.y:
+    if is_ai and ai_target_ball:
+        if ai_target_ball.position.y < position.y:
             move = -1.0
-        elif ball.position.y > position.y:
+        elif ai_target_ball.position.y > position.y:
             move = 1.0
     else:
         if Input.is_action_pressed("ui_up"):
